@@ -1,0 +1,62 @@
+﻿@page
+@model LoginModel
+
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<div class="login-box-body">
+    <p class="login-box-msg">Sign in to start your session</p>
+    <form method="post">
+        <div class="form-group has-feedback">
+            <input asp-for="Input.Email" type="email" class="form-control" placeholder="Email">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span asp-validation-for="Input.Email" class="help-block"></span>
+        </div>
+        <div class="form-group has-feedback">
+            <input asp-for="Input.Password" type="password" class="form-control" placeholder="Password">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <span asp-validation-for="Input.Password" class="help-block"></span>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="checkbox icheck">
+                    <label>
+                        <input asp-for="Input.RememberMe" type="checkbox"> Remember Me
+                    </label>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            </div>
+            <!-- /.col -->
+        </div>
+        @Html.AntiForgeryToken()
+    </form>
+    <form asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+        <div class="social-auth-links text-center">
+            <p>- OR -</p>
+            @if (Configuration["Authentication:Facebook:IsEnabled"] == "true")
+            {
+            <button type="submit" class="btn btn-block btn-social btn-facebook btn-flat" name="provider" value="Facebook" title="Log in using your Facebook account">
+                <i class="fa fa-facebook"></i> Sign in using Facebook
+            </button>
+            }
+
+            @if (Configuration["Authentication:Google:IsEnabled"] == "true")
+            {
+            <button type="submit" class="btn btn-block btn-social btn-google btn-flat" name="provider" value="Google" title="Log in using your Google account">
+                <i class="fa fa-google-plus"></i> Sign in using Google+
+            </button>
+            }
+        </div>
+    </form>
+    <!-- /.social-auth-links -->
+    <a asp-page="./ForgotPassword">I forgot my password</a><br>
+    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-center">Register a new membership</a>
+</div>
+<!-- /.login-box-body -->

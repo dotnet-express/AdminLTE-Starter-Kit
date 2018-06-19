@@ -1,0 +1,110 @@
+﻿@page
+@model ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+@inject Company.WebApplication1.Services.Profile.ProfileManager ProfileManager
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        My Profile
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Settings</a></li>
+        <li class="active">My Profile</li>
+    </ol>
+</section>
+
+
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+        <div class="col-lg-2">
+
+        </div>
+        <!-- /.col -->
+
+        <div class="col-lg-8">
+
+            <!-- Profile Settings -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Public profile</h3>
+                </div>
+                <div class="box-body box-profile">
+                    <form class="form-horizontal" method="post">
+                        <div class="form-group">
+                            <label for="inputUserName" class="col-sm-2 control-label">Username</label>
+
+                            <div class="col-sm-10">
+                                <input asp-for="UserName" class="form-control" id="inputUserName" placeholder="Username">
+                                <span asp-validation-for="UserName" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                @if (ProfileManager.IsEmailConfirmed(ProfileManager.CurrentUser))
+                                {
+                                    <div class="input-group">
+                                        <input asp-for="Email" type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                        <span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-ok text-success"></span></span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <input asp-for="Email" type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                    <button asp-page-handler="SendVerificationEmail" class="btn btn-link">Send verification email</button>
+                                }
+                                <span asp-validation-for="Email" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPhone" class="col-sm-2 control-label">Phone</label>
+
+                            <div class="col-sm-10">
+                                <input asp-for="PhoneNumber" class="form-control" id="inputPhoneNumber" placeholder="Phone" data-inputmask='"mask": "+7 (999) 999-9999"' data-mask>
+                                <span asp-validation-for="PhoneNumber" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+
+        <div class="col-lg-2">
+
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+</section>
+<!-- /.content -->
+
+@section Scripts {
+    <!-- InputMask -->
+    <script src="~/plugins/input-mask/jquery.inputmask.js"></script>
+    <script src="~/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+    <script src="~/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
+    <!-- Page script -->
+    <script>
+        $(function () {
+            //InputMask
+            $('[data-mask]').inputmask();
+        });
+    </script>
+}
