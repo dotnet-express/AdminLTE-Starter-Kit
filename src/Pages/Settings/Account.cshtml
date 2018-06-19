@@ -1,0 +1,179 @@
+﻿@page
+@model AccountModel
+@{
+    ViewData["Title"] = "Account";
+}
+
+@inject Company.WebApplication1.Services.Profile.ProfileManager ProfileManager
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        My Account
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Settings</a></li>
+        <li class="active">My Account</li>
+    </ol>
+</section>
+
+
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+        <div class="col-lg-2">
+
+        </div>
+        <!-- /.col -->
+
+        <div class="col-lg-8">
+            <!-- Account Settings -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Public profile</h3>
+                </div>
+                <div class="box-body box-account">
+                    <form id="formChangePassword" asp-controller="Profile" asp-action="@(ProfileManager.IsHasPassword(ProfileManager.CurrentUser) ? "ChangePassword" : "SetPassword")"
+                          class="form-horizontal" method="post">
+                        @if (ProfileManager.IsHasPassword(ProfileManager.CurrentUser))
+                        {
+                            <div class="form-group">
+
+                                <label for="OldPassword" class="col-sm-2 control-label">Current Password</label>
+
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="OldPassword" placeholder="Current password"
+                                           data-val="true"
+                                           data-val-required="The Current Password is required.">
+                                    <span class="field-validation-valid help-block"
+                                          data-valmsg-for="OldPassword" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-info alert-dismissible" role="alert">
+                                You do not have a local username/password for this site. Add a local
+                                account so you can log in without an external login.
+                            </div>
+                        }
+                        <div class="form-group">
+                            <label for="inputNewPassword" class="col-sm-2 control-label">New Password</label>
+
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputNewPassword" name="NewPassword" placeholder="New password"
+                                       data-val="true"
+                                       data-val-length="The Password must be at least 6 and at max 100 characters long."
+                                       data-val-length-max="100"
+                                       data-val-length-min="6"
+                                       data-val-regex="The field Password must match the regular expression &#x27;^((?=.*[a-z])(?=.*[A-Z])(?=.*\d).&#x2B;$)&#x27;."
+                                       data-val-regex-pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d).&#x2B;$)"
+                                       data-val-required="The Password field is required.">
+                                <span class="field-validation-valid help-block"
+                                      data-valmsg-for="NewPassword"
+                                      data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputConfirmPassword" class="col-sm-2 control-label">Confirm Password</label>
+
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputConfirmPassword" name="ConfirmPassword" placeholder="Confirm password"
+                                       data-val="true"
+                                       data-val-equalto="The password and confirmation password do not match."
+                                       data-val-equalto-other="NewPassword">
+                                <span class="field-validation-valid help-block"
+                                      data-valmsg-for="ConfirmPassword"
+                                      data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                        <div id="panelChangePasswordErrors" class="alert alert-danger" style="display:none;"></div>
+                    </form>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+
+        <div class="col-lg-2">
+
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+</section>
+<!-- /.content -->
+
+@section Scripts {
+    <!-- Page script -->
+    <script>
+        $(function () {
+            $("#formChangePassword").submit(function (e) {
+                e.preventDefault();
+
+                if (!$("#formChangePassword").valid())
+                    return;
+
+                var form = $(this);
+                var data = form.serialize();
+
+                $('#panelChangePasswordErrors').hide();
+                $('#panelChangePasswordErrors').empty();
+
+                $.ajax({
+                    url: form.attr("action"), // "/Profile/ChangePassword",
+                    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    method: "POST",
+                    data: data,
+                    success: function (user) {
+                        alert("Password Changed!");
+                        form[0].reset();
+                    },
+                    error: function (jxqr, error, status) {
+                        // парсинг json-объекта
+                        console.log(jxqr);
+                        console.log(error);
+                        console.log(status);
+                        if (jxqr.responseText === "") {
+                            $('#panelChangePasswordErrors').append("<p>" + jxqr.statusText + "</p>");
+                        }
+                        else {
+                            var response = JSON.parse(jxqr.responseText);
+                            // добавляем общие ошибки модели
+                            if (response) {
+
+                                $.each(response, function (index, item) {
+                                    $('#panelChangePasswordErrors').append("<p>" + item + "</p>");
+                                });
+                            }
+                            // добавляем ошибки свойства Name
+                            if (response['Name']) {
+
+                                $.each(response['Name'], function (index, item) {
+                                    $('#panelChangePasswordErrors').append("<p>" + item + "</p>");
+                                });
+                            }
+                            // добавляем ошибки свойства Age
+                            if (response['Age']) {
+                                $.each(response['Age'], function (index, item) {
+                                    $('#panelChangePasswordErrors').append("<p>" + item + "</p>");
+                                });
+                            }
+                        }
+
+                        $('#panelChangePasswordErrors').show();
+                    }
+                })
+            });
+        })
+    </script>
+}

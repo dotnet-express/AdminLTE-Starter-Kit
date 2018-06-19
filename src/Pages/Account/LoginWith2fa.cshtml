@@ -1,0 +1,37 @@
+﻿@page
+@model LoginWith2faModel
+@{
+    ViewData["Title"] = "Two-factor authentication";
+}
+
+<div class="login-box-body">
+    <p class="login-box-msg">Two-factor authentication</p>
+    <form method="post" asp-route-returnUrl="@Model.ReturnUrl">
+        <input asp-for="RememberMe" type="hidden" />
+        <div class="form-group has-feedback">
+            <input asp-for="Input.TwoFactorCode" class="form-control" placeholder="Code" autocomplete="off">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <span asp-validation-for="Input.TwoFactorCode" class="help-block"></span>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="checkbox icheck">
+                    <label>
+                        <input asp-for="Input.RememberMachine" type="checkbox"> Remember this computer
+                    </label>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Log In</button>
+            </div>
+            <!-- /.col -->
+        </div>
+    </form>
+
+    <p>
+        Don't have access to your authenticator device? You can
+        <a asp-page="./LoginWithRecoveryCode" asp-route-returnUrl="@Model.ReturnUrl">log in with a recovery code</a>.
+    </p>
+</div>
+<!-- /.login-box-body -->

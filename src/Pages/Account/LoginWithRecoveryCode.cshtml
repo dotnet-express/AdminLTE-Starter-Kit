@@ -1,0 +1,36 @@
+﻿@page
+@model LoginWithRecoveryCodeModel
+@{
+    ViewData["Title"] = "Recovery code verification";
+}
+
+<div class="login-box-body">
+    <p class="login-box-msg">Recovery code verification</p>
+    <p>
+        You have requested to log in with a recovery code. This login will not be remembered until you provide
+        an authenticator app code at log in or disable 2FA and log in again.
+    </p>
+    <form method="post" asp-route-returnUrl="@Model.ReturnUrl">
+        <div class="form-group has-feedback">
+            <input asp-for="Input.RecoveryCode" class="form-control" placeholder="Code" autocomplete="off">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <span asp-validation-for="Input.RecoveryCode" class="help-block"></span>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                &nbsp;
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Log In</button>
+            </div>
+            <!-- /.col -->
+        </div>
+    </form>
+
+    <p>
+        <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl" class="text-center">I want login again with Username/Password</a>
+    </p>
+</div>
+<!-- /.login-box-body -->
+

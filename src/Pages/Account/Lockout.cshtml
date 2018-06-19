@@ -1,0 +1,16 @@
+﻿@page
+@model LockoutModel
+@{
+    ViewData["Title"] = "Locked out";
+}
+
+<div class="login-box-body">
+    <p class="login-box-msg text-danger">
+        This account has been locked out,<br /> please try again later.
+    </p>
+    <p class="login-box-msg">
+        <a asp-page="./Login">Click here to log in again</a>.
+    </p>
+</div>
+<!-- /.login-box-body -->
+

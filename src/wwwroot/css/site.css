@@ -1,0 +1,6 @@
+/* Write your CSS code. */
+@media print {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
