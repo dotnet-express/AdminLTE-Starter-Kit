@@ -17,14 +17,8 @@ See installing, configuration and deploy for notes on how to run the project on 
 
 What things you need to install the software and how to install them
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs/) / [Visual Studio Code](https://code.visualstudio.com/)
-* [.NET Core SDK 2.0+](https://www.microsoft.com/net/download/)
-* [Bundler & Minifier](https://www.nuget.org/packages/BuildBundlerMinifier/)
-
-Optonal:
-
-* [NodeJs 8.11.3+](https://nodejs.org/)
-* [Bower 1.8.4+](https://bower.io/)
+* [Visual Studio 2017+](https://www.visualstudio.com/vs/) / [Visual Studio Code](https://code.visualstudio.com/)
+* [.NET Core SDK 2.2+](https://www.microsoft.com/net/download/)
 
 
 ### 3. Installing
@@ -107,26 +101,19 @@ After building, you must see this lines in build output:
 Detailed documentation you find in [Bundle and minifiy static assets in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/client-side/bundling-and-minification?view=aspnetcore-2.0&tabs=netcore-cli%2Caspnetcore2x#build-time-execution-of-bundling-and-minification). 
 
 
-### 6. Bower Components
+### 6. Library Manager
 
-**This template packaged with all bower scripts from ```bower.json``` and saved in ```\wwwroot\bower_components``` folder.**
+**This solution use Visual Studio Library Manager with config in ```libman.json``` and save all external libraries in ```\wwwroot\libs``` folder.**
 
-If you have installed and configured Bower, you can install/update bower components from ```bower.json```:
-``` shell
-bower install
-```
+[Client-side library acquisition in ASP.NET Core with LibMan](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/?view=aspnetcore-2.2)
 
-** If you use Windows and Visual Studio 2017 with internal Node.js and Bower support, you can use ```bower.cmd``` from Visual Studio external folder.
-For Visual Studio 2017 Community Edition use:
-``` shell
-"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\bower.cmd" install --force-latest
-```
+For Visual Studio:
 
-For installing Bower you need [node, npm](http://nodejs.org/) and run command: 
-``` shell
-npm install -g bower
-```
+[Use LibMan with ASP.NET Core in Visual Studio](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-2.2)
 
+For Visual Studio Code/CLI:
+
+[Use the LibMan command-line interface (CLI) with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/libman-cli?view=aspnetcore-2.2)
 
 
 
