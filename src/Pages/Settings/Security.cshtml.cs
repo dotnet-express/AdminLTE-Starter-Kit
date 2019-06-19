@@ -19,7 +19,6 @@ namespace Company.WebApplication1.Pages.Settings
 
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IMailManager _emailSender;
 
         public SecurityModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ILogger<IndexModel> logger) 
         {

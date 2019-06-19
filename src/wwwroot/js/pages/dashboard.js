@@ -64,7 +64,7 @@ $(function () {
   };
   // World map by jvectormap
   $('#world-map').vectorMap({
-    map              : 'world_mill_en',
+    map              : 'world_mill',
     backgroundColor  : 'transparent',
     regionStyle      : {
       initial: {

@@ -1,0 +1,200 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "admin-lte@2.4.10",
+      "destination": "wwwroot/libs/admin-lte/"
+    },
+    {
+      "library": "twitter-bootstrap@3.4.1",
+      "destination": "wwwroot/libs/bootstrap/"
+    },
+    {
+      "library": "bootstrap-colorpicker@2.5.3",
+      "destination": "wwwroot/libs/bootstrap-colorpicker/"
+    },
+    {
+      "library": "bootstrap-datepicker@1.9.0",
+      "destination": "wwwroot/libs/bootstrap-datepicker/"
+    },
+    {
+      "library": "bootstrap-daterangepicker@2.1.27",
+      "destination": "wwwroot/libs/bootstrap-daterangepicker/"
+    },
+    {
+      "library": "bootstrap-slider@10.6.1",
+      "destination": "wwwroot/libs/bootstrap-slider/"
+    },
+    {
+      "library": "bootstrap-timepicker@0.5.2",
+      "destination": "wwwroot/libs/bootstrap-timepicker/"
+    },
+    {
+      "library": "bootstrap3-wysiwyg@0.3.3",
+      "destination": "wwwroot/libs/bootstrap-wysiwyg5/"
+    },
+    {
+      "library": "Chart.js@1.1.1",
+      "destination": "wwwroot/libs/chart.js/"
+    },
+    {
+      "library": "ckeditor@4.11.4",
+      "destination": "wwwroot/libs/ckeditor/",
+      "files": [
+        "ckeditor.js",
+        "config.js",
+        "contents.css",
+        "styles.js",
+        "adapters/jquery.js",
+        "lang/en.js",
+        "lang/ru.js",
+        "plugins/about/dialogs/about.js",
+        "plugins/about/dialogs/logo_ckeditor.png",
+        "plugins/about/dialogs/hidpi/logo_ckeditor.png",
+        "plugins/clipboard/dialogs/paste.js",
+        "plugins/dialog/dialogDefinition.js",
+        "plugins/icons.png",
+        "plugins/icons_hidpi.png",
+        "plugins/link/dialogs/anchor.js",
+        "plugins/link/dialogs/link.js",
+        "plugins/link/images/hidpi/anchor.png",
+        "plugins/link/images/anchor.png",
+        "skins/moono-lisa/images/arrow.png",
+        "skins/moono-lisa/images/close.png",
+        "skins/moono-lisa/images/lock-open.png",
+        "skins/moono-lisa/images/lock.png",
+        "skins/moono-lisa/images/refresh.png",
+        "skins/moono-lisa/images/spinner.gif",
+        "skins/moono-lisa/images/hidpi/close.png",
+        "skins/moono-lisa/images/hidpi/lock-open.png",
+        "skins/moono-lisa/images/hidpi/lock.png",
+        "skins/moono-lisa/images/hidpi/refresh.png",
+        "skins/moono-lisa/dialog.css",
+        "skins/moono-lisa/dialog_ie.css",
+        "skins/moono-lisa/dialog_ie8.css",
+        "skins/moono-lisa/dialog_iequirks.css",
+        "skins/moono-lisa/editor.css",
+        "skins/moono-lisa/editor_gecko.css",
+        "skins/moono-lisa/editor_ie.css",
+        "skins/moono-lisa/editor_ie8.css",
+        "skins/moono-lisa/editor_iequirks.css",
+        "skins/moono-lisa/icons.png",
+        "skins/moono-lisa/icons_hidpi.png"
+      ]
+    },
+    {
+      "library": "datatables@1.10.19",
+      "destination": "wwwroot/libs/datatables/"
+    },
+    {
+      "library": "fastclick@1.0.6",
+      "destination": "wwwroot/libs/fastclick/"
+    },
+    {
+      "library": "flot@0.8.3",
+      "destination": "wwwroot/libs/flot/"
+    },
+    {
+      "library": "font-awesome@4.7.0",
+      "destination": "wwwroot/libs/font-awesome/"
+    },
+    {
+      "library": "fullcalendar@3.10.0",
+      "destination": "wwwroot/libs/fullcalendar/"
+    },
+    {
+      "library": "iCheck@1.0.2",
+      "destination": "wwwroot/libs/icheck/"
+    },
+    {
+      "library": "inputmask@3.3.11",
+      "destination": "wwwroot/libs/inputmask/",
+      "files": [
+        "jquery.inputmask.bundle.min.js"
+      ]
+    },
+    {
+      "library": "ion-rangeslider@2.3.0",
+      "destination": "wwwroot/libs/ion-rangeslider/"
+    },
+    {
+      "library": "ionicons@4.5.6",
+      "destination": "wwwroot/libs/ionicons/",
+      "files": [
+        "css/ionicons.min.css",
+        "css/ionicons-core.css",
+        "css/ionicons-core.min.css",
+        "css/ionicons.css",
+        "fonts/ionicons.eot",
+        "fonts/ionicons.svg",
+        "fonts/ionicons.ttf",
+        "fonts/ionicons.woff",
+        "fonts/ionicons.woff2"
+      ]
+    },
+    {
+      "library": "jquery@3.4.1",
+      "destination": "wwwroot/libs/jquery/",
+      "files": [
+        "jquery.min.js",
+        "jquery.js",
+        "jquery.min.map"
+      ]
+    },
+    {
+      "library": "jQuery-Knob@1.2.13",
+      "destination": "wwwroot/libs/jquery-knob/"
+    },
+    {
+      "library": "jQuery-slimScroll@1.3.8",
+      "destination": "wwwroot/libs/jquery-slimscroll/"
+    },
+    {
+      "library": "jquery-sparklines@2.1.2",
+      "destination": "wwwroot/libs/jquery-sparklines/"
+    },
+    {
+      "library": "jquery.qrcode@1.0",
+      "destination": "wwwroot/libs/jquery-qrcode/"
+    },
+    {
+      "library": "jqueryui@1.12.1",
+      "destination": "wwwroot/libs/jquery-ui/",
+      "files": [
+        "jquery-ui.min.js",
+        "jquery-ui.min.css",
+        "jquery-ui.js",
+        "jquery-ui.css"
+      ]
+    },
+    {
+      "library": "jquery-validate@1.19.1",
+      "destination": "wwwroot/libs/jquery-validate/"
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "destination": "wwwroot/libs/jquery-validation-unobtrusive/"
+    },
+    {
+      "library": "moment.js@2.24.0",
+      "destination": "wwwroot/libs/moment.js/"
+    },
+    {
+      "library": "morris.js@0.5.1",
+      "destination": "wwwroot/libs/morris.js/"
+    },
+    {
+      "library": "pace@1.0.2",
+      "destination": "wwwroot/libs/pace/"
+    },
+    {
+      "library": "raphael@2.2.8",
+      "destination": "wwwroot/libs/raphael/"
+    },
+    {
+      "library": "select2@4.0.7",
+      "destination": "wwwroot/libs/select2/"
+    }
+  ]
+}
