@@ -170,7 +170,7 @@ $(function () {
    * Create a world map with markers
    */
   $('#world-map-markers').vectorMap({
-    map              : 'world_mill_en',
+    map              : 'world_mill',
     normalizeFunction: 'polynomial',
     hoverOpacity     : 0.7,
     hoverColor       : false,
