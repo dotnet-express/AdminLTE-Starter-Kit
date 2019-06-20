@@ -11,7 +11,9 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.48" />
     <PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
+
     <PackageReference Include="Sendgrid" Version="9.9.0" />
   </ItemGroup>
 </Project>
